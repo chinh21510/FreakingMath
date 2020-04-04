@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxZ-4x-8yj">
+                                <rect key="frame" x="8" y="663" width="191" height="191"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZxZ-4x-8yj" secondAttribute="height" multiplier="1:1" id="zpt-QZ-cqB"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="dung"/>
+                                <connections>
+                                    <action selector="trueButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vY4-Tl-uSS"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1S9-Hq-TLd">
+                                <rect key="frame" x="366.33333333333331" y="44.000000000000007" width="39.666666666666686" height="71.666666666666686"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jZl-X1-lK5">
+                                <rect key="frame" x="0.0" y="44" width="414" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15+34= 30" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="294" translatesAutoresizingMaskIntoConstraints="NO" id="0ep-17-ohb">
+                                <rect key="frame" x="78.666666666666657" y="324.33333333333331" width="256.66666666666674" height="157.66666666666669"/>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="66"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pp-zr-61F">
+                                <rect key="frame" x="99" y="426" width="217" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9b5-m2-XdJ">
+                                <rect key="frame" x="38" y="248" width="339" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New  9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uS7-2e-7MZ">
+                                <rect key="frame" x="99" y="314" width="217" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="38"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wyV-bb-epE">
+                                <rect key="frame" x="38" y="248" width="339" height="280"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLW-WN-QaH">
+                                <rect key="frame" x="215" y="663" width="191" height="191"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wLW-WN-QaH" secondAttribute="height" id="9oE-Lv-mcH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
+                                <state key="normal" backgroundImage="sai"/>
+                                <connections>
+                                    <action selector="falseButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lhj-Tc-eTZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wLW-WN-QaH" firstAttribute="leading" secondItem="ZxZ-4x-8yj" secondAttribute="trailing" constant="16" id="0yE-VU-AtJ"/>
+                            <constraint firstItem="ZxZ-4x-8yj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="E8V-bl-zSj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wLW-WN-QaH" secondAttribute="trailing" constant="8" id="Pbw-DN-fW6"/>
+                            <constraint firstItem="wLW-WN-QaH" firstAttribute="bottom" secondItem="ZxZ-4x-8yj" secondAttribute="bottom" id="ZgS-Gh-7Iz"/>
+                            <constraint firstItem="1S9-Hq-TLd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gux-dQ-LJa"/>
+                            <constraint firstItem="0ep-17-ohb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="9:10" id="gxe-0D-spH"/>
+                            <constraint firstItem="1S9-Hq-TLd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-8" id="ilt-p9-nlN"/>
+                            <constraint firstItem="wLW-WN-QaH" firstAttribute="width" secondItem="ZxZ-4x-8yj" secondAttribute="width" id="s7y-xw-axY"/>
+                            <constraint firstItem="0ep-17-ohb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wVc-hb-LoY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZxZ-4x-8yj" secondAttribute="bottom" constant="8" id="yxk-HL-evv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="best" destination="1pp-zr-61F" id="Pl6-TV-g4Q"/>
+                        <outlet property="gameOver" destination="9b5-m2-XdJ" id="6q1-Q6-Sdg"/>
+                        <outlet property="gameOverUIview" destination="wyV-bb-epE" id="ECw-vS-qV8"/>
+                        <outlet property="label" destination="0ep-17-ohb" id="Ks0-vQ-8W7"/>
+                        <outlet property="newScore" destination="uS7-2e-7MZ" id="fWt-nK-nER"/>
+                        <outlet property="score" destination="1S9-Hq-TLd" id="vwf-pH-Epn"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="57.589285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dung" width="78" height="78"/>
+        <image name="sai" width="74" height="74"/>
+    </resources>
+</document>
