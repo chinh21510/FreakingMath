@@ -18,7 +18,7 @@
 
 /* Begin PBXFileReference section */
 		5F7883D82438C79100A9EC99 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		5FCCE2C22434A882007339B1 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FCCE2C22434A882007339B1 /* Freaking Math.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Freaking Math.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FCCE2C52434A882007339B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FCCE2C72434A882007339B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5FCCE2C92434A882007339B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		5FCCE2C32434A882007339B1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5FCCE2C22434A882007339B1 /* test.app */,
+				5FCCE2C22434A882007339B1 /* Freaking Math.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,7 +87,7 @@
 			);
 			name = test;
 			productName = test;
-			productReference = 5FCCE2C22434A882007339B1 /* test.app */;
+			productReference = 5FCCE2C22434A882007339B1 /* Freaking Math.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -296,7 +296,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Chinh.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Freaking Math";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -314,7 +314,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Chinh.test;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Freaking Math";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
