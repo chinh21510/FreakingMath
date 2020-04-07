@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     var question = Question(description: "a", isTrue: true)
     var isHidden = true
-    var time = Timer()
+    var timer = Timer()
     var scores: [Int] = []
     var checkIf = true
     
@@ -64,6 +64,8 @@ class ViewController: UIViewController {
             score.text = "\(a + 1)"
             self.question = newQuestion()
             timeProgress.progress = 1
+            timer.invalidate()
+            times()
        } else {
             hidden()
             score.text = "0"
@@ -76,7 +78,8 @@ class ViewController: UIViewController {
             score.text = "\(a + 1)"
             self.question = newQuestion()
             timeProgress.progress = 1
-            
+            timer.invalidate()
+            times()
         } else {
             hidden()
             score.text = "0"
@@ -84,8 +87,6 @@ class ViewController: UIViewController {
         }
  
     }
-    
-    
     @IBAction func replayButtonDidTap(_ sender: Any) {
         let question = newQuestion()
         gameOverLabel.isHidden = true
@@ -95,9 +96,8 @@ class ViewController: UIViewController {
         label.text = "\(question)"
     }
     
-    
     func times() {
-        time = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
     @objc func runTimedCode() {
         timeProgress.progress -= 0.001
