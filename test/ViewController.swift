@@ -13,15 +13,16 @@ class ViewController: UIViewController {
     var isHidden = true
     var time = Timer()
     var scores: [Int] = []
+    var checkIf = true
     
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var gameOverUIview: UIImageView!
-    @IBOutlet weak var gameOver: UILabel!
-    @IBOutlet weak var newScore: UILabel!
-    @IBOutlet weak var best: UILabel!
+    @IBOutlet weak var whenLoseUIView: UIImageView!
+    @IBOutlet weak var gameOverLabel: UILabel!
+    @IBOutlet weak var newScoreLabel: UILabel!
+    @IBOutlet weak var bestScoreLabel: UILabel!
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var timeProgress: UIProgressView!
-    @IBOutlet weak var sound: UIButton!
+    @IBOutlet weak var replayButtonDidTap: UIButton!
     
     func newQuestion() -> Question{
         let lhs = Int.random(in: 0...10)
@@ -43,18 +44,19 @@ class ViewController: UIViewController {
     func hidden() {
         let a = Int(score.text!)!
         var bestScore = 0
-        gameOverUIview.isHidden = true
-        gameOver.isHidden = false
-        newScore.isHidden = false
-        newScore.text = "New \(a)"
+        label.isHidden = true
+        whenLoseUIView.isHidden = false
+        gameOverLabel.isHidden = false
+        newScoreLabel.isHidden = false
+        newScoreLabel.text = "New \(a)"
         scores.append(a)
-        best.isHidden = false
+        bestScoreLabel.isHidden = false
         for score in scores {
             if bestScore < score {
                 bestScore = score
             }
         }
-        best.text = "Best: \(bestScore)"
+        bestScoreLabel.text = "Best: \(bestScore)"
     }
     @IBAction func trueButtonDidTap(_ sender: Any) {
        let a = Int(score.text!)!
@@ -67,7 +69,6 @@ class ViewController: UIViewController {
             score.text = "0"
             timeProgress.progress = 0
        }
-        times()
     }
     @IBAction func falseButtonDidTap(_ sender: Any) {
         let a = Int(score.text!)!
@@ -75,22 +76,26 @@ class ViewController: UIViewController {
             score.text = "\(a + 1)"
             self.question = newQuestion()
             timeProgress.progress = 1
+            
         } else {
             hidden()
             score.text = "0"
             timeProgress.progress = 0
         }
-        times()
+ 
     }
     
+    
     @IBAction func replayButtonDidTap(_ sender: Any) {
-        newQuestion()
-        gameOverUIview.isHidden = true
-        gameOver.isHidden = true
-        newScore.isHidden = true
-        best.isHidden = true
-        
+        let question = newQuestion()
+        gameOverLabel.isHidden = true
+        newScoreLabel.isHidden = true
+        bestScoreLabel.isHidden = true
+        whenLoseUIView.isHidden = true
+        label.text = "\(question)"
     }
+    
+    
     func times() {
         time = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
@@ -104,10 +109,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.question = newQuestion()
-        gameOverUIview.isHidden = true
-        gameOver.isHidden = true
-        newScore.isHidden = true
-        best.isHidden = true
+        whenLoseUIView.isHidden = true
+        gameOverLabel.isHidden = true
+        newScoreLabel.isHidden = true
+        bestScoreLabel.isHidden = true
     }
 }
 
