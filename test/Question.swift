@@ -11,4 +11,5 @@ import Foundation
 struct Question {
     let description: String
     let isTrue: Bool
+    var timeLeft = 2.0
 }
