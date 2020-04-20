@@ -14,16 +14,16 @@ class ViewController: UIViewController {
     var timer = Timer()
     var bestScore = 0
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var gameOverLabel: UILabel!
     @IBOutlet weak var newScoreLabel: UILabel!
     @IBOutlet weak var bestScoreLabel: UILabel!
-    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var timeProgress: UIProgressView!
     @IBOutlet weak var trueImageView: UIImageView!
     @IBOutlet weak var falseImageView: UIImageView!
     @IBOutlet weak var replayImageView: UIImageView!
-    @IBOutlet weak var gameOverUIview: UIView!
+    @IBOutlet weak var gameOverView: UIView!
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var replayButton: UIButton!
@@ -42,14 +42,18 @@ class ViewController: UIViewController {
             }
             description = "\(lhs)+\(rhs)\n=\(lhs + rhs + offset)\n "
         }
-        label.text = "\(description)"
         return Question(description: description, isTrue: isTrue, timeLeft: 2)
     }
     
+    func changeQuestion() {
+        self.question = newQuestion()
+        questionLabel.text = "\(question.description)"
+    }
+    
     func lose() {
-        let a = Int(score.text!)!
-        label.isHidden = true
-        gameOverUIview.isHidden = false
+        let a = Int(scoreLabel.text!)!
+        questionLabel.isHidden = true
+        gameOverView.isHidden = false
         if a > bestScore {
             bestScore = a
         }
@@ -61,14 +65,19 @@ class ViewController: UIViewController {
         falseButton.isUserInteractionEnabled = false
     }
     
+    func trueAnswer() {
+        let a = Int(scoreLabel.text!)!
+        scoreLabel.text = "\(a + 1)"
+        self.question = newQuestion()
+        timeProgress.progress = 1
+        timer.invalidate()
+        timeOfGame()
+    }
+    
     @IBAction func trueButtonDidTap(_ sender: Any) {
-        let a = Int(score.text!)!
         if question.isTrue {
-            score.text = "\(a + 1)"
-            self.question = newQuestion()
-            timeProgress.progress = 1
-            timer.invalidate()
-            times()
+            trueAnswer()
+            changeQuestion()
         } else {
             lose()
             timer.invalidate()
@@ -76,13 +85,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func falseButtonDidTap(_ sender: Any) {
-        let a = Int(score.text!)!
         if !question.isTrue {
-            score.text = "\(a + 1)"
-            self.question = newQuestion()
-            timeProgress.progress = 1
-            timer.invalidate()
-            times()
+            trueAnswer()
+            changeQuestion()
         } else {
             lose()
             timer.invalidate()
@@ -90,12 +95,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func replayButtonDidTap(_ sender: Any) {
-        label.isHidden = false
+        questionLabel.isHidden = false
         timer.invalidate()
         originalScreen()
     }
     
-    func times() {
+    func timeOfGame() {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
     
@@ -118,14 +123,15 @@ class ViewController: UIViewController {
     func originalScreen() {
         self.question = newQuestion()
         timeProgress.progress = 1
-        score.text = "0"
-        gameOverUIview.isHidden = true
+        scoreLabel.text = "0"
+        gameOverView.isHidden = true
         replayButton.isHidden = true
         replayImageView.isHidden = true
         trueButton.isUserInteractionEnabled = true
         falseButton.isUserInteractionEnabled = true
+        changeQuestion()
         
-        createShadow(view: gameOverUIview, color: UIColor.black, alpha: 0.5, width: 0, height: 5.0)
+        createShadow(view: gameOverView, color: UIColor.black, alpha: 0.5, width: 0, height: 5.0)
         createShadow(view: replayButton, color: UIColor.white, alpha: 0.8, width: 0.0, height: 5.0 )
         createShadow(view: trueButton, color: UIColor.white, alpha: 0.8, width: 0.0, height: 8.0)
         createShadow(view: falseButton, color: UIColor.white, alpha: 0.8, width: 0.0, height: 8.0)
@@ -134,7 +140,7 @@ class ViewController: UIViewController {
         falseImageView.layer.cornerRadius = falseImageView.bounds.size.width / 20
         replayImageView.layer.cornerRadius = replayImageView.bounds.size.width / 20
         
-        label.font = label.font.withSize(self.view.frame.height * 0.08)
+        questionLabel.font = questionLabel.font.withSize(self.view.frame.height * 0.08)
         gameOverLabel.font = gameOverLabel.font.withSize(self.view.frame.height * 0.04)
         newScoreLabel.font = newScoreLabel.font.withSize(self.view.frame.height * 0.04)
         bestScoreLabel.font = bestScoreLabel.font.withSize(self.view.frame.height * 0.04)
@@ -146,6 +152,7 @@ class ViewController: UIViewController {
         originalScreen()
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
