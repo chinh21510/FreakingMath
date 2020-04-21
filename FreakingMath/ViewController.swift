@@ -9,11 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var question = Question(description: "a", isTrue: true)
-    var isHidden = true
-    var timer = Timer()
-    var bestScore = 0
-    
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var gameOverLabel: UILabel!
     @IBOutlet weak var newScoreLabel: UILabel!
@@ -27,6 +22,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var replayButton: UIButton!
+    
+    var question = Question(description: "", isTrue: true)
+    var timer = Timer()
+    var bestScore = 0
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupInitScreen()
+    }
     
     func newQuestion() -> Question{
         let lhs = Int.random(in: 0...10)
@@ -50,65 +54,66 @@ class ViewController: UIViewController {
         questionLabel.text = "\(question.description)"
     }
     
-    func lose() {
-        let a = Int(scoreLabel.text!)!
+    func showGameOverState() {
+        let currentScore = Int(scoreLabel.text!)!
         questionLabel.isHidden = true
         gameOverView.isHidden = false
-        if a > bestScore {
-            bestScore = a
+        if currentScore > bestScore {
+            bestScore = currentScore
         }
-        newScoreLabel.text = "New \(a)"
+        newScoreLabel.text = "New \(currentScore)"
         bestScoreLabel.text = "Best \(bestScore)"
         replayButton.isHidden = false
         replayImageView.isHidden = false
         trueButton.isUserInteractionEnabled = false
         falseButton.isUserInteractionEnabled = false
+        
+        timer.invalidate()
     }
     
-    func trueAnswer() {
+    func didSelectRightAnswer() {
         let a = Int(scoreLabel.text!)!
         scoreLabel.text = "\(a + 1)"
         self.question = newQuestion()
-        timeProgress.progress = 1
-        timer.invalidate()
-        timeOfGame()
+        resetTimer()
+        
+        changeQuestion()
     }
     
     @IBAction func trueButtonDidTap(_ sender: Any) {
         if question.isTrue {
-            trueAnswer()
-            changeQuestion()
+            didSelectRightAnswer()
         } else {
-            lose()
-            timer.invalidate()
+            showGameOverState()
         }
     }
     
     @IBAction func falseButtonDidTap(_ sender: Any) {
         if !question.isTrue {
-            trueAnswer()
-            changeQuestion()
+            didSelectRightAnswer()
         } else {
-            lose()
-            timer.invalidate()
+            showGameOverState()
         }
     }
     
     @IBAction func replayButtonDidTap(_ sender: Any) {
         questionLabel.isHidden = false
         timer.invalidate()
-        originalScreen()
+        setupInitScreen()
     }
     
-    func timeOfGame() {
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+    func resetTimer() {
+        timer.invalidate()
+        
+        timeProgress.progress = 1
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
     }
     
-    @objc func runTimedCode() {
+    @objc func updateProgress() {
         question.timeLeft = question.timeLeft - 0.01
         timeProgress.progress = Float(question.timeLeft / 2.0)
         if timeProgress.progress == 0 {
-            lose()
+            showGameOverState()
         }
     }
     
@@ -120,7 +125,7 @@ class ViewController: UIViewController {
         view.layer.cornerRadius = view.bounds.size.width / 20
     }
     
-    func originalScreen() {
+    func setupInitScreen() {
         self.question = newQuestion()
         timeProgress.progress = 1
         scoreLabel.text = "0"
@@ -144,21 +149,5 @@ class ViewController: UIViewController {
         gameOverLabel.font = gameOverLabel.font.withSize(self.view.frame.height * 0.04)
         newScoreLabel.font = newScoreLabel.font.withSize(self.view.frame.height * 0.04)
         bestScoreLabel.font = bestScoreLabel.font.withSize(self.view.frame.height * 0.04)
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        originalScreen()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
-    override open var shouldAutorotate: Bool {
-        return false
     }
 }

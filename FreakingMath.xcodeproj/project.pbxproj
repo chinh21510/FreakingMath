@@ -42,7 +42,7 @@
 		5FCCE2B92434A882007339B1 = {
 			isa = PBXGroup;
 			children = (
-				5FCCE2C42434A882007339B1 /* test */,
+				5FCCE2C42434A882007339B1 /* Freaking math */,
 				5FCCE2C32434A882007339B1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,7 +55,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5FCCE2C42434A882007339B1 /* test */ = {
+		5FCCE2C42434A882007339B1 /* Freaking math */ = {
 			isa = PBXGroup;
 			children = (
 				5FCCE2C52434A882007339B1 /* AppDelegate.swift */,
@@ -67,15 +67,16 @@
 				5FCCE2D02434A883007339B1 /* LaunchScreen.storyboard */,
 				5FCCE2D32434A883007339B1 /* Info.plist */,
 			);
-			path = test;
+			name = "Freaking math";
+			path = FreakingMath;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5FCCE2C12434A882007339B1 /* test */ = {
+		5FCCE2C12434A882007339B1 /* FreakingMath */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5FCCE2D62434A883007339B1 /* Build configuration list for PBXNativeTarget "test" */;
+			buildConfigurationList = 5FCCE2D62434A883007339B1 /* Build configuration list for PBXNativeTarget "FreakingMath" */;
 			buildPhases = (
 				5FCCE2BE2434A882007339B1 /* Sources */,
 				5FCCE2BF2434A882007339B1 /* Frameworks */,
@@ -85,7 +86,7 @@
 			);
 			dependencies = (
 			);
-			name = test;
+			name = FreakingMath;
 			productName = test;
 			productReference = 5FCCE2C22434A882007339B1 /* Freaking Math.app */;
 			productType = "com.apple.product-type.application";
@@ -105,7 +106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5FCCE2BD2434A882007339B1 /* Build configuration list for PBXProject "test" */;
+			buildConfigurationList = 5FCCE2BD2434A882007339B1 /* Build configuration list for PBXProject "FreakingMath" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +119,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5FCCE2C12434A882007339B1 /* test */,
+				5FCCE2C12434A882007339B1 /* FreakingMath */,
 			);
 		};
 /* End PBXProject section */
@@ -289,7 +290,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = FreakingMath/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -307,7 +308,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = FreakingMath/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -323,7 +324,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5FCCE2BD2434A882007339B1 /* Build configuration list for PBXProject "test" */ = {
+		5FCCE2BD2434A882007339B1 /* Build configuration list for PBXProject "FreakingMath" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5FCCE2D42434A883007339B1 /* Debug */,
@@ -332,7 +333,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5FCCE2D62434A883007339B1 /* Build configuration list for PBXNativeTarget "test" */ = {
+		5FCCE2D62434A883007339B1 /* Build configuration list for PBXNativeTarget "FreakingMath" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5FCCE2D72434A883007339B1 /* Debug */,
